@@ -1,0 +1,107 @@
+#     img_unclipped = ee.ImageCollection(img).filterBounds(region).filterDate(start_date,end_date)
+    
+    #     img = img_unclipped.clip(region)
+        
+    #     vis_params = {"opacity":1}
+
+    #     if (img == "LANDSAT/LC08/C01/T1_RT"):
+    #         img = img.sort('CLOUD_COVER').first()
+    #         nir = img.select('B8')
+    #         red = img.select('B4')
+    #         data = index_calculation(nir,red)
+    #     elif (img == "COPERNICUS/S1_GRD"):
+    #         nir = img.select('')
+    #         red = img.select('')
+    #         data = index_calculation(nir,red)  
+            
+    #     map_id_dict = ee.Image(data).getMapId(vis_params)
+
+    #     tile = str(map_id_dict['tile_fetcher'].url_format)
+
+    #     tiles = tile[0:len(tile)-0]  
+        
+    #     return render_template('map.html', tiles=tile, map_id = map_id_dict);      
+    
+    # def ndbi():
+    #     img_unclipped = ee.ImageCollection(img).filterBounds(region).filterDate(start_date,end_date)
+    
+    #     img = img_unclipped.clip(region)
+        
+    #     vis_params = {"opacity":1}
+
+    #     if (img == "LANDSAT/LC08/C01/T1_RT"):
+    #         img = img.sort('CLOUD_COVER').first()
+    #         nir = img.select('B8')
+    #         red = img.select('B4')
+    #         data = index_calculation(nir,red)
+    #     elif (img == "COPERNICUS/S1_GRD"):
+    #         nir = img.select('B4')
+    #         red = img.select('B3')
+    #         data = index_calculation(nir,red)  
+            
+    #     map_id_dict = ee.Image(data).getMapId(vis_params)
+
+    #     tile = str(map_id_dict['tile_fetcher'].url_format)
+
+    #     tiles = tile[0:len(tile)-0]  
+        
+    #     return render_template('map.html', tiles=tile, map_id = map_id_dict);  
+        
+    # def msi():
+    #     img_unclipped = ee.ImageCollection(img).filterBounds(region).filterDate(start_date,end_date)
+    
+    #     img = img_unclipped.clip(region)
+        
+    #     vis_params = {"opacity":1}
+
+    #     if (img == "LANDSAT/LC08/C01/T1_RT"):
+    #         img = img.sort('CLOUD_COVER').first()
+    #         nir = img.select('B8')
+    #         red = img.select('B4')
+    #         data = index_calculation(nir,red)
+    #     elif (img == "COPERNICUS/S1_GRD"):
+    #         nir = img.select('')
+    #         red = img.select('')
+    #         data = index_calculation(nir,red)  
+            
+        
+    # def slope(img)
+            
+    #     map_id_dict = ee.Image(data).getMapId(vis_params)
+
+    #     tile = str(map_id_dict['tile_fetcher'].url_format)
+
+    #     tiles = tile[0:len(tile)-0]  
+        
+    #     return render_template('map.html', tiles=tile, map_id = map_id_dict);  
+
+
+    
+    # def index_calculation(a,b):
+    #     #index calculate here
+    #     a = a.subtract(b).divide(a.add(b))
+    #     return a
+    
+    # l8_pokhara=ee.ImageCollection("COPERNICUS/S1_GRD").filterBounds(region).filterDate(start_date,end_date)
+
+    # # l8_clip = l8_pokhara.clip(region)
+    # coll = l8_pokhara.toList(l8_pokhara.size())
+
+    # data = ee.Image(coll.get(1))
+    
+    # data1 = data.clip(region)
+
+    # out_img = Image(url=data.getThumbUrl({'min':-30,'max':0,'dimensions':100}))    
+    # out_img1 = data.getThumbUrl({'min':-30,'max':0,'dimensions':400})
+    # vis_params ={"opacity":1,"min":-30,"max":0}
+
+    # map_id_dict = ee.Image(data).getMapId(vis_params)
+    
+    # tile = str(map_id_dict['tile_fetcher'].url_format)
+    
+    # tiles = tile[0:len(tile)-0]
+    
+    # return render_template('out.html',ot_image = out_img1)
+   
+    
+    # return render_template('map.html', tiles=tile, map_id = map_id_dict);
