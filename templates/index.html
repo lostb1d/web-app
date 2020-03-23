@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSGS</title><!-- Latest compiled and minified CSS -->
+    <style>
+        #mapid { height: 400px; }
+    </style>
+
+    <!-- <link rel="stylesheet" href="css/my.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+</head>
+<body>
+    
+<h2>Center for Space Science and Geomatics Studies</h2>
+<hr>
+<div>
+<form method="post" action=".">
+
+    <!-- Project Name<input type="text" name="pname"> -->
+    Start Date<input type="date" name="st_date">
+    End Date<input type="date" name="ed_date">
+    Imagery
+        <select name="imagery">
+        <option value="LANDSAT/LC08/C01/T1_RT">Landsat 8</option>
+        <option value="COPERNICUS/S1_GRD">Sentinel 2A</option>
+        </select>
+    Data
+        <select name="data">
+        <option value="NDVI">NDVI</option>
+        <option value="NDBI">NDBI</option>
+        <option value="NDBI">MSI</option>
+        <option value="NDBI">Unsupervised LULC</option>
+        <option value="NDBI">Supervised LULC</option>
+        </select>
+    
+    <button class="btn btn-success" type="submit" value="Submit">Run</button>
+
+</form>
+</div>
+<div id="mapid">hfkshfkas<br><BR><br>
+
+
+</div>
+<script>
+    var mymap = L.map('mapid').setView([28.715904,84.237083], 6);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibG9zdGIxIiwiYSI6ImNrNnExMnV5bzBqbzIza3FvcGN5anA3ZnQifQ.2yLw1_lvLxOcdWNhupE3kA'
+}).addTo(mymap);
+    //my tile from GEE
+
+// var add_ee_layout(self,mapID,name){
+//     leaflet
+// }
+//  L.tileLayer('https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/bed93dbfec7ed6a5fc42fbf7bf33ade0-b2e630879515b682e5b662c9da7d1de8:getPixels',{
+
+// }).addTo(mymap);
+
+var abc = L.polygon([
+         [ 28.63509471188937,84.09463766767294],
+          [28.25836191073054,82.76529196454794],
+          [ 27.753975036058428,83.28164938642294],
+          [ 27.637243672824766,84.10562399579794]
+]).addTo(mymap);
+
+</script>
+
+<div>
+    <center>
+        Copyright Center for Space Science and Geomatics Studies
+    </center>
+</div>
+    
+
+</body>
+</html>
